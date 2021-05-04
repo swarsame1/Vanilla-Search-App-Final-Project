@@ -56,8 +56,21 @@ button {
   font-size: 15px;
   text-align: center;
 }
-h3 {
+small {
   text-align:center;
-  color:antiquewhite;
-  font-size: 11px;
+  color: black;
+}
+
+.current-weather-temperature {
+  margin-right:20px;
+  height: 100px;
+  width: 100px;
+}
+
+.current-temperature strong {
+  color: #5c636a;
+  font-size: 50px;
+  line-height: 1;
+  font-weight:400;
+
 }
