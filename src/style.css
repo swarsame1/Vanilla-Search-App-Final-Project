@@ -1,0 +1,63 @@
+body {
+  font-family: sans-serif;
+  background-image: linear-gradient(120deg, pink 0%, #fda085 100%);
+  margin: 0 auto;
+}
+
+.boxed {
+  border: 1px black;
+  text-align: center;
+  
+}
+.container {
+  border-radius: 90px;
+  padding: 90px;
+  margin: 0 auto;
+  width: 100%;
+  background-image: linear-gradient(to top, pink 0%, #b490ca 100%);
+  box-shadow: 0 0.5rem 2rem rgba(0, 0, 0, 0.15);
+  text-align: center;
+}
+
+input {
+  display: block;
+  margin: 0 auto;
+  text-align: center;
+}
+button {
+  display: block;
+  margin: 0 auto;
+  text-align: center;
+}
+.search-bar {
+  display: block;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.current-city {
+  color: #5c636a;
+  font-size: 20px;
+  padding: 20px;
+  line-height: 1;
+  text-align: center;
+}
+
+.current-date {
+  font-weight: 100;
+  font-size: 15px;
+  text-align: center;
+  color:antiquewhite;
+}
+.current-temperature {
+  display: block;
+  position: relative;
+  left: 0px;
+  font-size: 15px;
+  text-align: center;
+}
+h3 {
+  text-align:center;
+  color:antiquewhite;
+  font-size: 11px;
+}
