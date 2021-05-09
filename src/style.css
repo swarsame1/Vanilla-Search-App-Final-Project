@@ -66,11 +66,3 @@ small {
   height: 100px;
   width: 100px;
 }
-
-.current-temperature strong {
-  color: #5c636a;
-  font-size: 50px;
-  line-height: 1;
-  font-weight:400;
-
-}

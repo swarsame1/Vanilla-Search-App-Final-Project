@@ -29,7 +29,6 @@ FulldateElement.innerHTML = `${day}, ${month} ${date} ${hours}:${minutes}, ${yea
 
 // This is for the city name and temperature to replace the placeholders
 function displayWeatherCondition(response) {
-  console.log(response.data);
   document.querySelector("#city").innerHTML = response.data.name;
   document.querySelector("#temperature").innerHTML = Math.round(
     response.data.main.temp
@@ -40,8 +39,18 @@ function displayWeatherCondition(response) {
   );
   document.querySelector("#description").innerHTML =
     response.data.weather[0].main;
+
+  let iconElement = document.querySelector("#icon");
+  iconElement.setAttribute(
+    "src",
+    `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+  );
+
+  descriptionElement.innerHTML = response.data.weather[0].description;
+  iconElement.setAttribute("alt", response.data.weather[0].description);
 }
-//For Search Button to work
+
+// For Search Button to work
 function search(city) {
   let apiKey = "99d192e05eead599ecd11f39a474da55";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
