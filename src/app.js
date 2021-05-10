@@ -45,7 +45,6 @@ function displayWeatherCondition(response) {
     "src",
     `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
-  descriptionElement.innerHTML = response.data.weather[0].description;
   iconElement.setAttribute("alt", response.data.weather[0].description);
 
   let temperatureElement = document.querySelector("#temperature");
@@ -77,7 +76,7 @@ function displayFahrenheitTemperature(event) {
 function displayCelsiusTemperature(event) {
   event.preventDefault();
   let temperatureElement = document.querySelector("#temperature");
-  temperatureElement.innerHTML = math.round(celsiusTemperature);
+  temperatureElement.innerHTML = Math.round(celsiusTemperature);
 }
 
 let celsiusTemperature = null;
