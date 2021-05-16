@@ -29,11 +29,13 @@ FulldateElement.innerHTML = `${day}, ${month} ${date} ${hours}:${minutes}, ${yea
 
 // This is going to diplay the forecast
 
-function displayForecast() {
+function displayForecast(response) {
   let forecastElement = document.querySelector("#forecast");
+  console.log(response.data.daily);
+
+  let days = ["Sun", "Mon", "Tues", "Wed", "Thurs", "Fri", "Sat"];
 
   let forecastHTML = `<div class="row">`;
-  let days = ["Sun", "Mon", "Tues", "Wed", "Thurs", "Fri", "Sat"];
   days.forEach(function (day) {
     forecastHTML =
       forecastHTML +
@@ -54,6 +56,11 @@ function displayForecast() {
 }
 
 // This is for the city name and temperature to replace the placeholders
+function getForecast(coordinates) {
+  let apiKey = "99d192e05eead599ecd11f39a474da55";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&unit=metric`;
+  axios.get(apiUrl).then(displayForecast);
+}
 function displayWeatherCondition(response) {
   document.querySelector("#city").innerHTML = response.data.name;
   document.querySelector("#temperature").innerHTML = Math.round(
@@ -78,6 +85,8 @@ function displayWeatherCondition(response) {
   celsiusTemperature = response.data.main.temp;
 
   temperatureElement.innerHTML = Math.round(celsiusTemperature);
+
+  getForecast(response.data.coord);
 }
 
 // For Search Button to work
