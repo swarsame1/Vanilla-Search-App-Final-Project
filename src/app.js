@@ -27,6 +27,32 @@ let month = months[now.getMonth()];
 let FulldateElement = document.querySelector("#date");
 FulldateElement.innerHTML = `${day}, ${month} ${date} ${hours}:${minutes}, ${year}`;
 
+// This is going to diplay the forecast
+
+function displayForecast() {
+  let forecastElement = document.querySelector("#forecast");
+
+  let forecastHTML = `<div class="row">`;
+  let days = ["Sun", "Mon", "Tues", "Wed", "Thurs", "Fri", "Sat"];
+  days.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      `
+          <div class="col">
+            ${day}
+            <br />
+            ☀️
+            <br />
+            8℃/
+            <br />
+            46°F
+          </div>`;
+  });
+
+  forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
+}
+
 // This is for the city name and temperature to replace the placeholders
 function displayWeatherCondition(response) {
   document.querySelector("#city").innerHTML = response.data.name;
@@ -94,3 +120,4 @@ let cityInput = document.querySelector("#city-input");
 cityInput.addEventListener("click", search);
 
 search("New York");
+displayForecast();
