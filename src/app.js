@@ -1,4 +1,3 @@
-let now = new Date();
 function formatDate(timestamp) {
   let date = new Date(timestamp);
   let hours = date.getHours();
@@ -30,8 +29,6 @@ function formatDay(timestamp) {
 
   return days[day];
 }
-
-// This is going to diplay the forecast
 
 function displayForecast(response) {
   let forecast = response.data.daily;
@@ -65,19 +62,18 @@ function displayForecast(response) {
   `;
     }
   });
+
   forecastHTML = forecastHTML + `</div>`;
   forecastElement.innerHTML = forecastHTML;
 }
 
-// This is for the city name and temperature to replace the placeholders
 function getForecast(coordinates) {
-  console.log(coordinates);
-  let apiKey = "99d192e05eead599ecd11f39a474da55";
+  let apiKey = "5f472b7acba333cd8a035ea85a0d4d4c";
   let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
   axios.get(apiUrl).then(displayForecast);
 }
 
-function displayWeatherCondition(response) {
+function displayTemperature(response) {
   let temperatureElement = document.querySelector("#temperature");
   let cityElement = document.querySelector("#city");
   let descriptionElement = document.querySelector("#description");
@@ -103,15 +99,10 @@ function displayWeatherCondition(response) {
   getForecast(response.data.coord);
 }
 
-// For Search Button to work
-
-let searchForm = document.querySelector("#search-form");
-let cityInput = document.querySelector("#city-input");
-
 function search(city) {
-  let apiKey = "99d192e05eead599ecd11f39a474da55";
+  let apiKey = "5f472b7acba333cd8a035ea85a0d4d4c";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
-  axios.get(apiUrl).then(displayWeatherCondition);
+  axios.get(apiUrl).then(displayTemperature);
 }
 
 function handleSubmit(event) {
